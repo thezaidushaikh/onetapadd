@@ -1,0 +1,173 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #f4f7f6;
+  /* Add padding to the bottom to prevent the list from being hidden by the button */
+  padding-bottom: 100px;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.tab-btn {
+  flex-grow: 1;
+  padding: 15px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.2s ease-in-out;
+}
+
+.tab-btn.active {
+  color: #007bff;
+  border-bottom-color: #007bff;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#complete-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Make it a circle */
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  /* Style the '+' icon */
+  font-size: 36px;
+  line-height: 52px; /* Helps vertically center the '+' */
+  color: white;
+  background-color: #007bff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 1000; /* Ensures the button stays on top of other content */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* Add a nice shadow */
+}
+
+#complete-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Style for the button when in reset mode */
+#complete-btn.reset-mode {
+  background-color: #dc3545; /* Red color for warning */
+  font-size: 28px; /* Adjust font size for the new icon */
+}
+
+#completion-list {
+  list-style-type: none;
+  padding: 0;
+  width: 80%;
+  max-width: 500px;
+}
+
+/* Shared styles for all list items */
+#completion-list li,
+#given-list li {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#completion-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  width: 300px;
+  padding: 12px 15px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border-left: 5px solid #007bff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#given-list {
+  list-style-type: none;
+  padding: 0;
+  width: 80%;
+  max-width: 500px;
+}
+
+#given-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+  padding: 12px 15px;
+  margin-top: 8px;
+  border-radius: 4px;
+  border-left: 5px solid #007bff; /* Blue border for "Given" items */
+}
+
+.given-item-text div {
+  font-size: 14px;
+}
+
+.remove-btn {
+  cursor: pointer;
+  /* Make it a circle */
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #007bff; /* Green background */
+  color: white; /* White arrow icon */
+  /* Center the icon inside the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+
+.remove-btn:hover {
+  background-color: #0056b3; /* A darker green on hover */
+}
+
+.delete-btn {
+  background-color: #007bff; /* Blue background for delete */
+}
+
+.delete-btn:hover {
+  background-color: #0056b3; /* A darker blue on hover */
+}
+
+.page.hidden {
+  display: none;
+}
+
+/* --- Mobile Responsiveness --- */
+/* Apply these styles on screens 600px wide or smaller */
+@media (max-width: 600px) {
+  #completion-list {
+    width: 95%; /* Use more of the available screen width */
+  }
+
+  /* Make the floating button slightly smaller on mobile */
+  #complete-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+    line-height: 44px;
+  }
+}
